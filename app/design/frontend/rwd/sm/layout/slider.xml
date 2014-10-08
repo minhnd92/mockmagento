@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout>
+
+    <default>
+        <reference name="head">
+            <action method="addItem" ifconfig="slider_options/general/enable">
+                <type>skin_css</type>
+                <name>css/slider/slider.css</name>
+            </action>
+        </reference>
+    </default>
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem" ifconfig="slider_options/general/enable">
+                <type>skin_js</type>
+                <name>js/slider/idangerous.swiper.min.js</name>
+            </action>
+            <action method="addItem" ifconfig="slider_options/general/enable">
+                <type>skin_css</type>
+                <name>css/slider/short.css</name>
+            </action>
+        </reference>
+        <reference name="header" ifconfig="slider_options/general/enable">
+            <block type="slider/slider" name="home.slider" as="homeSlider"></block>
+            <action method="setTemplate" ifconfig="slider_options/general/enable">
+            	<template>sm/header.phtml</template>
+            </action>
+        </reference>
+        <reference name="cms.wrapper">
+            <action method="unsetChildren" ifconfig="slider_options/general/enable"></action>
+        </reference>
+    </cms_index_index>
+    <!--<catalog_product_view>-->
+        <!--<reference name="content">-->
+            <!--<block type="slider/slider" name="slider"></block>-->
+        <!--</reference>-->
+        <!--<reference name="head">-->
+            <!--<action method="addItem" ifconfig="slider_options/general/enable">-->
+                <!--<type>skin_js</type>-->
+                <!--<name>js/slider/idangerous.swiper.min.js</name>-->
+            <!--</action>-->
+            <!--<action method="addItem" ifconfig="slider_options/general/enable">-->
+                <!--<type>skin_css</type>-->
+                <!--<name>css/slider/short.css</name>-->
+            <!--</action>-->
+        <!--</reference>-->
+    <!--</catalog_product_view>-->
+</layout>

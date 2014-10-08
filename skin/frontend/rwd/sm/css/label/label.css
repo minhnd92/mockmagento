@@ -1,0 +1,25 @@
+img[class*="label-"] {
+    position: absolute;
+    width: 30% !important;
+    height: 25% !important;
+    border: none !important;
+    max-height: 75px !important;
+    max-width: 75px !important;
+}
+img.label-1 {
+    top: 0;
+    left: 0;
+}
+img.label-2 {
+    top: 0;
+    right: 0;
+}
+
+img.label-3 {
+    bottom: 0;
+    left: 0;
+}
+img.label-4 {
+    bottom: 0;
+    right: 0;
+}

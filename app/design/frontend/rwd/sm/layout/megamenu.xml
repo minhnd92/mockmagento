@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<layout>
+    <default >
+        <reference name="header">
+            <remove name="global_notices"></remove>
+            <action ifconfig="megamenu_options/general/enable" method="unsetChild">
+                <alias>topMenu</alias>
+            </action>
+            <block name="mega.menu" type="megamenu/megamenu" template="sm/megamenu/megamenu.phtml"/>
+            <action method="setChild" ifconfig="megamenu_options/general/enable">
+                <alias>topMenu</alias>
+                <block>mega.menu</block>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addItem" ifconfig="megamenu_options/general/enable">
+                <type>skin_css</type>
+                <name>css/megamenu/mycss.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>

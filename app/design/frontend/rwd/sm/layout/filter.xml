@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout>
+    <catalog_category_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/filter/filter.js</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>mage/adminhtml/loader.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/filter/filter.css</name>
+            </action>
+        </reference>
+    </catalog_category_view>
+    <catalog_category_layered>
+        <reference name="product_list">
+            <action method="setTemplate">
+                <template>sm/category/product/list.phtml</template>
+            </action>
+        </reference>
+        <reference name="catalog.leftnav">
+            <action method="setTemplate">
+                <template>sm/catalog/layer/view.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_layered>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/productzoom/jquery.fancybox.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/productzoom/jquery.fancybox.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/productzoom/productzoom.css</name>
+            </action>
+            <action method="removeItem">
+            	<type>skin_js</type>
+            	<name>js/app.js</name>
+            </action>
+            <action method="addItem">
+            	<type>skin_js</type>
+            	<name>js/productzoom/app.js</name>
+            </action>
+        </reference>
+        <reference name="product.info.media">
+        	<action method="setTemplate">
+        		<template>sm/product/view/media.phtml</template>
+        	</action>
+        </reference>
+    </catalog_product_view>
+</layout>

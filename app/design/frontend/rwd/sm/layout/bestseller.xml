@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<layout>
+    <cms_index_index>
+        <reference name="content">
+            <block name="bestseller.slider" type="bestseller/bestSeller">
+                <action method="setTemplate" ifconfig="bestseller_options/general/enable">
+                    <template>sm/bestseller/bestseller.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="head">
+            <action method="addItem" ifconfig="bestseller_options/general/enable" >
+                <type>skin_css</type>
+                <name>css/bestseller/bestseller.css</name>
+            </action>
+            <action method="addItem" ifconfig="bestseller_options/general/enable">
+                <type>skin_js</type>
+                <name>js/bestseller/idangerous.swiper.min.js</name>
+            </action>
+        </reference>
+    </cms_index_index>
+	<catalog_category_view>
+        <block name="bestseller.slider" as="bestsellerSlider" type="bestseller/bestSeller">
+            <action method="setTemplate" ifconfig="bestseller_options/general/enable">
+                <template>sm/bestseller/bestseller.phtml</template>
+            </action>
+        </block>
+    </catalog_category_view>
+    <catalog_category_layered>
+        <reference name="category.products">
+            <action method="setTemplate" ifconfig="bestseller_options/general/enable">
+                <template>sm/category/view.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addItem" ifconfig="bestseller_options/general/enable">
+                <type>skin_css</type>
+                <name>css/bestseller/bestseller.css</name>
+            </action>
+            <action method="addItem" ifconfig="bestseller_options/general/enable">
+                <type>skin_js</type>
+                <name>js/bestseller/idangerous.swiper.min.js</name>
+            </action>
+        </reference>
+    </catalog_category_layered>
+    <catalog_category_default>
+        <reference name="category.products">
+            <action method="setTemplate" ifconfig="bestseller_options/general/enable">
+                <template>sm/category/view.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addItem" ifconfig="bestseller_options/general/enable">
+                <type>skin_css</type>
+                <name>css/bestseller/bestseller.css</name>
+            </action>
+            <action method="addItem" ifconfig="bestseller_options/general/enable">
+                <type>skin_js</type>
+                <name>js/bestseller/idangerous.swiper.min.js</name>
+            </action>
+        </reference>
+    </catalog_category_default>
+
+</layout>

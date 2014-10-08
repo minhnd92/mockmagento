@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Slider>
+            <version>0.1.0</version>
+        </SM_Slider>
+    </modules>
+
+    <admin>
+        <routers>
+            <slider>
+                <use>admin</use>
+                <args>
+                    <module>SM_Slider</module>
+                    <frontName>slider</frontName>
+                </args>
+            </slider>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <slider translate="title" module="slider">
+                <title>Slider</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <slider translate="title" module="slider">
+                        <title>Manage Sliders</title>
+                        <sort_order>100</sort_order>
+                        <action>slider/adminhtml_slider</action>
+                    </slider>
+                    <image translate="title" module="slider">
+                        <title>Manage Images</title>
+                        <sort_order>101</sort_order>
+                        <action>slider/adminhtml_image</action>
+                    </image>
+                </children>
+            </slider>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <SM_Slider translate="title" module="slider">
+                            <title>Slider</title>
+                            <sort_order>0</sort_order>
+                            <children>
+                                <manage_slider>
+                                    <title>Manage Slider</title>
+                                </manage_slider>
+                            </children>
+                        </SM_Slider>
+                    </children>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <slider_options>
+                                            <title>Manage slider config</title>
+                                        </slider_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <slider>
+                    <file>slider.xml</file>
+                </slider>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <global>
+        <helpers>
+            <slider>
+                <class>SM_Slider_Helper</class>
+            </slider>
+        </helpers>
+        <models>
+            <slider>
+                <class>SM_Slider_Model</class>
+                <resourceModel>slider_mysql4</resourceModel>
+            </slider>
+            <slider_mysql4>
+                <class>SM_Slider_Model_Mysql4</class>
+                <entities>
+                    <slider>
+                        <table>slider</table>
+                    </slider>
+                    <image>
+                        <table>image</table>
+                    </image>
+                </entities>
+            </slider_mysql4>
+        </models>
+        <resources>
+            <slider_setup>
+                <setup>
+                    <module>SM_Slider</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </slider_setup>
+            <slider_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </slider_write>
+            <slider_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </slider_read>
+        </resources>
+        <blocks>
+            <slider>
+                <class>SM_Slider_Block</class>
+            </slider>
+        </blocks>
+    </global>
+
+    <frontend>
+        <routers>
+            <slider>
+                <use>standard</use>
+                <args>
+                    <module>SM_Slider</module>
+                </args>
+            </slider>
+        </routers>
+        <layout>
+            <updates>
+                <slider>
+                    <file>slider.xml</file>
+                </slider>
+            </updates>
+        </layout>
+    </frontend>
+</config>

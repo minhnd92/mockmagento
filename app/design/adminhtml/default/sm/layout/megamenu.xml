@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <megamenu_adminhtml_megamenu_index>
+        <reference name="content">
+            <block type="megamenu/adminhtml_megamenu" name="megamenu" >
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </megamenu_adminhtml_megamenu_index>
+</layout>

@@ -1,0 +1,164 @@
+.featured-container hr.style-two:after
+{
+    content: "FEATURED PRODUCTS";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+.featured-container hr.style-two
+{
+    padding: 0;
+    border: none;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 7px;
+}
+.featured-container {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+.featured-pagination {
+    position: absolute;
+    z-index: 20;
+    left: 10px;
+    bottom: 10px;
+}
+.featured-container .swiper-pagination-switch {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: #222;
+    margin-right: 5px;
+    opacity: 0.8;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.featured-container .swiper-visible-switch {
+    background: #aaa;
+}
+.featured-container .swiper-active-switch {
+    background: #fff;
+}
+/*
+
+*/
+.featured-container {
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+    /* Fix of Webkit flickering */
+    z-index:1;
+}
+.featured-container .swiper-wrapper {
+    position:relative;
+    width:100%;
+    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-duration:0s;
+    -webkit-transform:translate3d(0px,0,0);
+    -webkit-transition-timing-function:ease;
+
+    -moz-transition-property:-moz-transform, left, top;
+    -moz-transition-duration:0s;
+    -moz-transform:translate3d(0px,0,0);
+    -moz-transition-timing-function:ease;
+
+    -o-transition-property:-o-transform, left, top;
+    -o-transition-duration:0s;
+    -o-transform:translate3d(0px,0,0);
+    -o-transition-timing-function:ease;
+    -o-transform:translate(0px,0px);
+
+    -ms-transition-property:-ms-transform, left, top;
+    -ms-transition-duration:0s;
+    -ms-transform:translate3d(0px,0,0);
+    -ms-transition-timing-function:ease;
+
+    transition-property:transform, left, top;
+    transition-duration:0s;
+    transform:translate3d(0px,0,0);
+    transition-timing-function:ease;
+}
+.featured-container .swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.featured-container .swiper-slide {
+    padding: 0px 5px ;
+    float: left;
+    align: center;
+
+    /*min-width: 140px;*/
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.featured-container .swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
+}
+.featured-container .swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.featured-container {
+    max-height: 350px;
+}
+.featured-container .swiper-slide a {
+    height: 50%;
+    border:none;
+    max-width: 200px;
+
+}
+.featured-container img {
+    border: 1px solid rgb(236, 242, 240);
+    margin-left: 0px ;
+    width: 100%;
+    max-height: 100%;
+}
+.swiper-slide-active {
+    /* Specific active slide styling: */
+
+}
+.swiper-slide-active {
+    /* Specific visible slide styling: */
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+    /* Stylize pagination button: */
+
+}
+.swiper-active-switch {
+    /* Specific active button style: */
+
+}
+.swiper-visible-switch {
+    /* Specific visible button style: */
+
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Label>
+            <version>0.1.0</version>
+        </SM_Label>
+    </modules>
+
+    <global>
+        <resources>
+            <label_setup>
+                <setup>
+                    <module>SM_Label</module>
+                </setup>
+                <connection>
+                    <use>core/resource</use>
+                </connection>
+            </label_setup>
+            <label_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </label_write>
+            <label_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </label_read>
+        </resources>
+        <helpers>
+            <label>
+                <class>SM_Label_Helper</class>
+            </label>
+        </helpers>
+        <models>
+            <label>
+                <class>SM_Label_Model</class>
+                <resourceModel>label_mysql4</resourceModel>
+            </label>
+            <label_mysql4>
+                <class>SM_Label_Model_Mysql4</class>
+                <entities>
+                    <label>
+                        <table>label</table>
+                    </label>
+                </entities>
+            </label_mysql4>
+        </models>
+        <blocks>
+            <label>
+                <class>SM_Label_Block</class>
+            </label>
+        </blocks>
+    </global>
+
+    <admin>
+        <routers>
+            <label>
+                <use>admin</use>
+                <args>
+                    <module>SM_Label</module>
+                    <frontName>label</frontName>
+                </args>
+            </label>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <catalog>
+                <children>
+                    <label module="label">
+                        <title>Manage Label</title>
+                        <sort_order>99999</sort_order>
+                        <action>label/adminhtml_label</action>
+                    </label>
+                </children>
+            </catalog>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <label module="label">
+                                    <title>Manage Label</title>
+                                    <sort_order>0</sort_order>
+                                </label>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <label>
+                    <file>label.xml</file>
+                </label>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+        <events>
+            <catalog_product_collection_load_after>
+                <observers>
+                    <add_label_to_product_collection>
+                        <type>singleton</type>
+                        <class>SM_Label_Model_Observer</class>
+                        <method>addLabelToProductCollection</method>
+                    </add_label_to_product_collection>
+                </observers>
+            </catalog_product_collection_load_after>
+            <catalog_product_load_after>
+                <observers>
+                    <add_label_to_product>
+                        <type>singleton</type>
+                        <class>SM_Label_Model_Observer</class>
+                        <method>addLabelToProduct</method>
+                    </add_label_to_product>
+                </observers>
+            </catalog_product_load_after>
+        </events>
+        <layout>
+            <updates>
+                <label>
+                    <file>label.xml</file>
+                </label>
+            </updates>
+        </layout>
+    </frontend>
+
+
+</config>

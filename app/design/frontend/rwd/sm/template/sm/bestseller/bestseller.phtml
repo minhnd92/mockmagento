@@ -1,0 +1,64 @@
+<?php
+if(Mage::registry('current_category'))
+{
+    $_products = $this->getCategoryBestSellerProduct();
+    $flag = 'category';
+}else{
+    $_products = $this->getHomeBestSellerProduct();
+    $flag = 'home';
+}
+
+$size = $_products->count();
+
+$sliders_per_view = (Mage::getStoreConfig('bestseller_options/slider_effect/slider_per_view') <= $size) ? Mage::getStoreConfig('bestseller_options/slider_effect/slider_per_view') : $size;
+
+$autoplay = Mage::getStoreConfig('bestseller_options/slider_effect/autoplay');
+
+if($autoplay){
+    $autoplay_time = Mage::getStoreConfig('bestseller_options/slider_effect/autoplay_time')? Mage::getStoreConfig('bestseller_options/slider_effect/autoplay_time') : '5000';
+} else{
+    $autoplay_time = 'false';
+}
+
+if($sliders_per_view > Mage::getStoreConfig('bestseller_options/slider_effect/max_slider'))
+{
+    $sliders_per_view = (int) Mage::getStoreConfig('bestseller_options/slider_effect/max_slider');
+}
+?>
+<? if (isset($_products)): ?>
+    <?php if ($_products->getSize()): ?>
+        <?php $_columnCount = $this->getColumnCount(); ?>
+        <div class="bestseller-container">
+            <hr class="style-two"/>
+            <div class="swiper-wrapper">
+                <?php $i=0; foreach ($_products->getItems() as $_product): ?>
+                    <div class="swiper-slide">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+                            <? if($_product->getLabel()): ?>
+                                <? foreach($_product->getLabel() as $label): ?>
+                                    <img class="label-<?echo $label->getData('position')?>" src="<? echo Mage::getBaseUrl('media'). DS. 'label'. DS. $label->getData('path') ?>" />
+                                <? endforeach; ?>
+                            <? endif; ?>
+                            <?php $_imgSize = 260; ?>
+                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize) ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                        </a>
+                        <span style="text-align:left"><?php echo $this->getReviewsSummaryHtml($_product, 'short') ?></span>
+                        <h3 style="text-align:left" class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
+                        <span style="text-align:left"><?php echo $this->getPriceHtml($_product, true, '-new') ?></span>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<? echo "<script>
+    var mySwiper = new Swiper('.bestseller-container',{
+        slidesPerView: ".$sliders_per_view.",
+        autoplayDisableOnInteraction: false,
+        autoResize: true,
+        autoplay: ".$autoplay_time.",
+        loop: true
+    })
+</script>" ;
+?>

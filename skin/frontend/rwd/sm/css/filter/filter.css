@@ -1,0 +1,42 @@
+.loadingmask{
+    position: absolute;
+    z-index: 99;
+    width: 20%;
+    left: 40%;
+    height: 20%;
+    top: 40%;
+}
+.loadingmask img{
+    margin: auto;
+}
+
+.loadingmask .top{
+    height: 45%;
+}
+
+.loadingmask .bot{
+    height: 50%;
+}
+
+.loading-mask-loader{
+    margin: auto;
+}
+
+.col-left-first{
+    position: relative;
+}
+
+.block-layered-nav{
+    top: 0px;
+    /*position: fixed;*/
+}
+
+div.item-selected{
+    border: 3px yellowgreen solid;
+    border-radius: 5px;
+}
+.category-products-container{
+    position: relative;
+}
+
+

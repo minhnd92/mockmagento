@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout>
+    <slider_adminhtml_slider_index>
+        <reference name="content">
+            <block type="slider/adminhtml_slider" name ="slider"></block>
+        </reference>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/slider/slider.js</name>
+            </action>
+        </reference>
+    </slider_adminhtml_slider_index>
+
+    <slider_adminhtml_image_index>
+        <reference name="content">
+            <block type="slider/adminhtml_image" ></block>
+        </reference>
+    </slider_adminhtml_image_index>
+</layout>

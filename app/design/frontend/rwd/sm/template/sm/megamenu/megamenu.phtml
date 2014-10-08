@@ -1,0 +1,10 @@
+<?php
+
+$_menu = $this->getMenu();
+//Zend_Debug::dump($content);
+?>
+<?php if($_menu): ?>
+        <ul id ="nav" class="clearfix">
+                <?php echo $_menu ?>
+        </ul>
+<?php endif ?>

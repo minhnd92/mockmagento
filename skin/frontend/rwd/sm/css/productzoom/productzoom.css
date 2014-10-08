@@ -1,0 +1,12 @@
+.product-image-zoom
+{
+    display: block;
+    border:none !important;
+    text-align: center;
+}
+
+.product-image-gallery{
+    display: inline-block;
+    border : 1px solid #EDEDED;
+    max-width: 100%;
+}

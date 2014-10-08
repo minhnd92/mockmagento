@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_BestSeller>
+            <version>0.1.0</version>
+        </SM_BestSeller>
+    </modules>
+
+    <global>
+        <helpers>
+            <bestseller>
+                <class>SM_BestSeller_Helper</class>
+            </bestseller>
+        </helpers>
+        <blocks>
+            <bestseller>
+                <class>SM_BestSeller_Block</class>
+            </bestseller>
+        </blocks>
+        <models>
+            <bestseller>
+                <class>SM_BestSeller_Model</class>
+            </bestseller>
+        </models>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <bestseller>
+                    <file>bestseller.xml</file>
+                </bestseller>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <bestseller>
+                <use>admin</use>
+                <args>
+                    <module>SM_BestSeller</module>
+                    <frontName>bestseller</frontName>
+                </args>
+            </bestseller>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <bestseller_options>
+                                            <title>Best Seller Config</title>
+                                        </bestseller_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

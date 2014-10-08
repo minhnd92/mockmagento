@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout>
+    <featured_adminhtml_featured_index>
+        <reference name="content">
+            <block name="featured.products.grid" type="featured/adminhtml_featured">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </featured_adminhtml_featured_index>
+    <featured_adminhtml_featured_showproductgrid>
+        <reference name="content">
+            <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                <action method="setUseConfirm"><params>0</params></action>
+            </block>
+            <block name="add.product.to.featured" type="featured/adminhtml_product"/>
+        </reference>
+    </featured_adminhtml_featured_showproductgrid>
+</layout>

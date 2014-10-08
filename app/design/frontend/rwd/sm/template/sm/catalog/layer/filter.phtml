@@ -1,0 +1,78 @@
+<style>
+    .color-picker {
+        float: left;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0,0,0,.2);
+    }
+    .sm-filter-select-box{
+        width: 100%;
+    }
+</style>
+<?php
+if($attributeModel = $this->getAttributeModel())
+{
+    $filterType = (int) $attributeModel->getFilterType();
+    $attributeCode = $attributeModel->getAttributeCode();
+}
+?>
+<ol>
+<?php if($filterType==2): ?>
+    <div>
+        <select class="sm-filter-select-box" name="<?php echo $attributeCode ?>" >
+<?php endif; ?>
+<?php foreach ($this->getItems() as $_item): ?>
+    <li>
+        <?php if ($_item->getCount() > 0): ?>
+
+            <?php if($filterType == 3 ||$filterType == 0): ?>
+                <a href="#" class="sm-filter-item " data-url="<?php echo $_item->getUrl() ?>">
+                    <?php echo $_item->getLabel() ?>
+                    <?php if ($this->shouldDisplayProductCount()): ?>
+                        <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                    <?php endif; ?>
+                </a>
+
+            <?php elseif($filterType==1): ?>
+                <div>
+                    <input class="sm-filter-item <? echo $_item->getIsSelected()? 'item-selected':'' ?>" data-url="<?php echo $_item->getUrl() ?>" type="checkbox" id="<?php echo $filterType.'-'.$_item->getValue() ?>"  name="<?php echo $attributeCode ?>" />
+                    <label for="<?php echo $filterType.'-'.$_item->getValue() ?>"><?php echo $_item->getLabel() ?></label>
+                    <?php if ($this->shouldDisplayProductCount()): ?>
+                        <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                    <?php endif; ?>
+                </div>
+            <?php elseif($filterType==2): ?>
+                <option class="sm-filter-item" data-url="<?php echo $_item->getUrl() ?>" value="<?php echo $_item->getValue() ?>" >
+                    <?php echo $_item->getLabel() ?>
+                    <?php if ($this->shouldDisplayProductCount()): ?>
+                        <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                    <?php endif; ?>
+                </option>
+
+            <?php elseif($filterType == 4): ?>
+                    <div data-url="<?php echo $_item->getUrl() ?>" class="color-picker sm-filter-item <? echo $_item->getIsSelected()? 'item-selected':'' ?>" style="background-color: <?php echo $_item->getColor() ?>">
+                    </div>
+                    <?php if ($this->shouldDisplayProductCount()): ?>
+                        <span class="count" style="float:left">(<?php echo $_item->getCount() ?>)</span>
+                    <?php endif; ?>
+            <?php endif; ?>
+        <?php else: ?>
+            <span>
+                <?php echo $_item->getLabel(); ?>
+                <?php if ($this->shouldDisplayProductCount()): ?>
+                    <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                <?php endif; ?>
+            </span>
+        <?php endif; ?>
+    </li>
+<?php endforeach ?>
+    <li class="clearfix"></li>
+</ol>
+<?php if($filterType==2): ?>
+        </select>
+    </div>
+<?php endif; ?>

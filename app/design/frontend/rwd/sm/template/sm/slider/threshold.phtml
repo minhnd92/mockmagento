@@ -1,0 +1,32 @@
+<?php
+$images = $this->getAllImages();
+$effectsConfig = Mage::helper('slider')->getEffectsConfig();
+?>
+
+<div class="slider-container">
+    <div class="swiper-wrapper">
+        <? foreach($images as $value) : ?>
+            <div class="swiper-slide">
+                <? if($value['title']): ?>
+                    <h3 class="title">
+                        <?= $value['title'] ?>
+                    </h3>
+                <? endif; ?>
+                <img src="<?= $value['image_path'] ?>">
+            </div>
+        <? endforeach; ?>
+    </div>
+    <div class="slider-pagination"></div>
+</div>
+
+<script>
+    var mySwiper = new Swiper('.slider-container',{
+        <? echo $effectsConfig['pagination']? "pagination : '.slider-pagination'," : '' ?>
+        paginationClickable: true,
+        moveStartThreshold: 100,
+        <? echo $effectsConfig['autoplay'] ? "autoplay : 10000," : '' ?>
+        <? echo $effectsConfig['loop'] ? "loop : true," : 'loop : false,' ?>
+        mode: '<? echo $effectsConfig['mode' ]==2 ? 'vertical' : 'horizontal' ?>'
+
+    })
+</script>
