@@ -23,7 +23,7 @@ class SM_Label_Varien_Data_Form_Element_Thumbnail extends Varien_Data_Form_Eleme
         if ((string)$this->getValue()) {
             $url = $this->_getUrl();
             if( !preg_match("/^http\:\/\/|https\:\/\//", $url) ) {
-                $url = Mage::getBaseUrl('media') . 'label'.DS.$url;
+                $url = Mage::getBaseUrl('media') . 'label/'.$url;
             }
 
             $html = '<img src="' . $url . '" id="' . $this->getHtmlId() . '_image" title="' . $this->getValue() . '"'

@@ -20,8 +20,8 @@ if ($_imgUrl = $_category->getImageUrl()) {
 <?php if($_imgUrl): ?>
     <?php echo $_imgHtml ?>
 
-<? echo Mage::app()->getLayout()->getBlock('featured.slider') ? Mage::app()->getLayout()->getBlock('featured.slider')->toHtml() : '' ; ?>
-<? echo Mage::app()->getLayout()->getBlock('bestseller.slider') ? Mage::app()->getLayout()->getBlock('bestseller.slider')->toHtml() : '' ; ?>
+<?php echo Mage::app()->getLayout()->getBlock('featured.slider') ? Mage::app()->getLayout()->getBlock('featured.slider')->toHtml() : '' ; ?>
+<?php echo Mage::app()->getLayout()->getBlock('bestseller.slider') ? Mage::app()->getLayout()->getBlock('bestseller.slider')->toHtml() : '' ; ?>
 
 <?php endif; ?>
 

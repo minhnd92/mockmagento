@@ -5,28 +5,28 @@ $effectsConfig = Mage::helper('slider')->getEffectsConfig();
 
 <div class="slider-container">
     <div class="swiper-wrapper">
-        <? foreach($images as $value) : ?>
+        <?php foreach($images as $value) : ?>
             <div class="swiper-slide">
-                <? if($value['title']): ?>
+                <?php if($value['title']): ?>
                     <h3 class="title">
-                        <?= $value['title'] ?>
+                        <?php echo $value['title'] ?>
                     </h3>
-                <? endif; ?>
-                <img src="<?= $value['image_path'] ?>">
+                <?php endif; ?>
+                <img src="<?php echo $value['image_path'] ?>">
             </div>
-        <? endforeach; ?>
+        <?php endforeach; ?>
     </div>
     <div class="slider-pagination"></div>
 </div>
 
 <script>
     var mySwiper = new Swiper('.slider-container',{
-        <? echo $effectsConfig['pagination']? "pagination : '.slider-pagination'," : '' ?>
+        <?php echo $effectsConfig['pagination']? "pagination : '.slider-pagination'," : '' ?>
         paginationClickable: true,
         moveStartThreshold: 100,
-        <? echo $effectsConfig['autoplay'] ? "autoplay : 10000," : '' ?>
-        <? echo $effectsConfig['loop'] ? "loop : true," : 'loop : false,' ?>
-        mode: '<? echo $effectsConfig['mode' ]==2 ? 'vertical' : 'horizontal' ?>'
+        <?php echo $effectsConfig['autoplay'] ? "autoplay : 10000," : '' ?>
+        <?php echo $effectsConfig['loop'] ? "loop : true," : 'loop : false,' ?>
+        mode: '<?php echo $effectsConfig['mode' ]==2 ? 'vertical' : 'horizontal' ?>'
 
     })
 </script>

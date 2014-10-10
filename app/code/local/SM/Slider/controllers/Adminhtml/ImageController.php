@@ -80,7 +80,7 @@ class SM_Slider_Adminhtml_ImageController extends Mage_Adminhtml_Controller_acti
                 }
 
                 //this way the name is saved in DB
-                $data['image_path'] = Mage::getBaseUrl('media').'slider'.DS.$_FILES['image_path']['name'];
+                $data['image_path'] = Mage::getBaseUrl('media').'slider/'.$_FILES['image_path']['name'];
             }
 
 

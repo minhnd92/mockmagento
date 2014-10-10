@@ -123,3 +123,4 @@ media/
 .htaccess
 .htaccess.sample
 .idea/
+encryption-key.txt

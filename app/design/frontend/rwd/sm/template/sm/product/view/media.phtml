@@ -39,21 +39,21 @@
 ?>
 <div class="product-image product-image-zoom">
     <div class="product-image-gallery">
-        <? if($_product->getData('label')): ?>
-            <? Mage::log('yes') ?>
-            <? foreach($_product->getLabel() as $label): ?>
-                <img class="label-<?echo $label->getData('position')?>" src="<? echo Mage::getBaseUrl('media'). DS. 'label'. DS. $label->getData('path') ?>" />
-            <? endforeach; ?>
-        <? endif; ?>
+        <?php if($_product->getData('label')): ?>
+            <?php Mage::log('yes') ?>
+            <?php foreach($_product->getLabel() as $label): ?>
+                <img class="label-<?echo $label->getData('position')?>" src="<?php echo Mage::getBaseUrl('media'). DS. 'label'. DS. $label->getData('path') ?>" />
+            <?php endforeach; ?>
+        <?php endif; ?>
         <img id="image-main"
-             width="<? echo $_mediaConfig['main_image']['width'] ? $_mediaConfig['main_image']['width'] : 500; ?>"
-             height="<? echo $_mediaConfig['main_image']['height'] ? $_mediaConfig['main_image']['height'] : 700; ?>"
+             width="<?php echo $_mediaConfig['main_image']['width'] ? $_mediaConfig['main_image']['width'] : 500; ?>"
+             height="<?php echo $_mediaConfig['main_image']['height'] ? $_mediaConfig['main_image']['height'] : 700; ?>"
              class="gallery-image visible"
              src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
              alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
              title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"
-             data-zoom-box-width="<? echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 300; ?>"
-             data-zoom-box-height="<? echo $_mediaConfig['box_zoom']['height'] ? $_mediaConfig['box_zoom']['height'] : 400; ?>"
+             data-zoom-box-width="<?php echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 300; ?>"
+             data-zoom-box-height="<?php echo $_mediaConfig['box_zoom']['height'] ? $_mediaConfig['box_zoom']['height'] : 400; ?>"
             />
 
         <?php
@@ -66,13 +66,13 @@
                                   ->resize(1200);
         ?>
             <img id="image-<?php echo $i; ?>"
-                 width="<? echo $_mediaConfig['main_image']['width'] ? $_mediaConfig['main_image']['width'] : 500; ?>"
-                 height="<? echo $_mediaConfig['main_image']['height'] ? $_mediaConfig['main_image']['height'] : 700; ?>"
+                 width="<?php echo $_mediaConfig['main_image']['width'] ? $_mediaConfig['main_image']['width'] : 500; ?>"
+                 height="<?php echo $_mediaConfig['main_image']['height'] ? $_mediaConfig['main_image']['height'] : 700; ?>"
                  class="gallery-image"
                  src="<?php echo $_imageUrl; ?>"
                  data-zoom-image="<?php echo  $_imageUrl; ?>"
-                 data-zoom-box-width="<? echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 300; ?>"
-                 data-zoom-box-height="<? echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 400; ?>"
+                 data-zoom-box-width="<?php echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 300; ?>"
+                 data-zoom-box-height="<?php echo $_mediaConfig['box_zoom']['width'] ? $_mediaConfig['box_zoom']['width'] : 400; ?>"
                 />
         <?php
             $i++;
@@ -98,8 +98,8 @@
                    title="<?php echo $this->escapeHtml($_image->getLabel()) ?>"
                    data-image-index="<?php echo $i; ?>">
                     <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(75); ?>"
-                         width="<? echo $_mediaConfig['thumbnail']['width'] ? $_mediaConfig['thumbnail']['width'] : 75; ?>"
-                         height="<? echo $_mediaConfig['thumbnail']['height'] ? $_mediaConfig['thumbnail']['height'] : 75; ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+                         width="<?php echo $_mediaConfig['thumbnail']['width'] ? $_mediaConfig['thumbnail']['width'] : 75; ?>"
+                         height="<?php echo $_mediaConfig['thumbnail']['height'] ? $_mediaConfig['thumbnail']['height'] : 75; ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
                 </a>
             </p>
         </li>

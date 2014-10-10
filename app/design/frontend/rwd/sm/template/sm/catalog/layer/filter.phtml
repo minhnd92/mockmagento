@@ -39,7 +39,7 @@ if($attributeModel = $this->getAttributeModel())
 
             <?php elseif($filterType==1): ?>
                 <div>
-                    <input class="sm-filter-item <? echo $_item->getIsSelected()? 'item-selected':'' ?>" data-url="<?php echo $_item->getUrl() ?>" type="checkbox" id="<?php echo $filterType.'-'.$_item->getValue() ?>"  name="<?php echo $attributeCode ?>" />
+                    <input class="sm-filter-item <?php echo $_item->getIsSelected()? 'item-selected':'' ?>" data-url="<?php echo $_item->getUrl() ?>" type="checkbox" id="<?php echo $filterType.'-'.$_item->getValue() ?>"  name="<?php echo $attributeCode ?>" />
                     <label for="<?php echo $filterType.'-'.$_item->getValue() ?>"><?php echo $_item->getLabel() ?></label>
                     <?php if ($this->shouldDisplayProductCount()): ?>
                         <span class="count">(<?php echo $_item->getCount() ?>)</span>
@@ -54,7 +54,7 @@ if($attributeModel = $this->getAttributeModel())
                 </option>
 
             <?php elseif($filterType == 4): ?>
-                    <div data-url="<?php echo $_item->getUrl() ?>" class="color-picker sm-filter-item <? echo $_item->getIsSelected()? 'item-selected':'' ?>" style="background-color: <?php echo $_item->getColor() ?>">
+                    <div data-url="<?php echo $_item->getUrl() ?>" class="color-picker sm-filter-item <?php echo $_item->getIsSelected()? 'item-selected':'' ?>" style="background-color: <?php echo $_item->getColor() ?>">
                     </div>
                     <?php if ($this->shouldDisplayProductCount()): ?>
                         <span class="count" style="float:left">(<?php echo $_item->getCount() ?>)</span>

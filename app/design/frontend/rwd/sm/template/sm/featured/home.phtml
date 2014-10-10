@@ -21,7 +21,7 @@ if($sliders_per_view > Mage::getStoreConfig('featured_options/general/max_slider
     $sliders_per_view = (int) Mage::getStoreConfig('featured_options/general/max_slider');
 }
 ?>
-<? if (isset($_products)): ?>
+<?php if (isset($_products)): ?>
     <?php if ($_products->getSize()): ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
         <div class="featured-container">
@@ -30,11 +30,11 @@ if($sliders_per_view > Mage::getStoreConfig('featured_options/general/max_slider
                     <?php $i=0; foreach ($_products->getItems() as $_product): ?>
                         <div class="swiper-slide">
                             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
-                                <? if($_product->getLabel()): ?>
-                                    <? foreach($_product->getLabel() as $label): ?>
-                                        <img class="label-<?echo $label->getData('position')?>" src="<? echo Mage::getBaseUrl('media'). DS. 'label'. DS. $label->getData('path') ?>" />
-                                    <? endforeach; ?>
-                                <? endif; ?>
+                                <?php if($_product->getLabel()): ?>
+                                    <?php foreach($_product->getLabel() as $label): ?>
+                                        <img class="label-<?php echo $label->getData('position')?>" src="<?php echo Mage::getBaseUrl('media'). 'label/'. $label->getData('path') ?>" />
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                                 <?php $_imgSize = 260; ?>
                                 <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize) ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                             </a>
@@ -48,7 +48,7 @@ if($sliders_per_view > Mage::getStoreConfig('featured_options/general/max_slider
     <?php endif; ?>
 <?php endif; ?>
 
-<? echo "<script>
+<?php echo "<script>
     var mySwiper = new Swiper('.featured-container',{
         slidesPerView: ".$sliders_per_view.",
         autoplayDisableOnInteraction: false,
